@@ -5,6 +5,8 @@ import { IMConfig } from "../config";
 import defaultMessages from "./translations/default";
 import FeatureLayer = require("esri/layers/FeatureLayer");
 import { JimuMapViewComponent, JimuMapView } from "jimu-arcgis";
+import WebMap = require("esri/WebMap");
+
 
 interface IState {
   jimuMapView: JimuMapView;
@@ -24,31 +26,14 @@ export default class WebMapSwap extends React.PureComponent<
   }
 
   selectChangeHandler = (evt) => {
-    console.log('select change handler START HERE!', evt);
-    // if (this.state.jimuMapView) {
-    //   if (this.state.featureLayerOnMap) {
-    //     // Remove the old Feature Layer
-    //     this.state.jimuMapView.view.map.remove(this.state.featureLayerOnMap);
-    //     this.setState({
-    //       featureLayerOnMap: undefined,
-    //     });
-    //   }
-
-    //   if (evt.target.value && evt.target.value !== "") {
-    //     // Create and add the new Feature Layer
-    //     const featureLayer = new FeatureLayer({
-    //       url: evt.target.value,
-    //     });
-    //     this.state.jimuMapView.view.map.add(featureLayer);
-    //     this.setState({
-    //       featureLayerOnMap: featureLayer,
-    //     });
-    //   }
-    // } else {
-    //   console.error(
-    //     "You probably need to choose you map in the settings panel."
-    //   );
-    // }
+    if (this.state.jimuMapView) {
+      this.state.jimuMapView.view.map = new WebMap({
+        portalItem: {
+          // autocasts as new PortalItem()
+          id: evt.target.value
+        }
+      });
+    }
   };
 
   render() {
@@ -72,18 +57,20 @@ export default class WebMapSwap extends React.PureComponent<
             />
           )}
         <p className="shadow-lg m-3 p-3 bg-white rounded">
-          {defaultMessages.webMap}:
-          <select
-            onChange={(evt) => {
-              this.selectChangeHandler(evt);
-            }}
-            style={{ maxWidth: "100%" }}
-          >
-            <option value=""></option>
-            {this.props.config.webMapIds.map((webMapId) => {
-              return <option value={webMapId}>{webMapId}</option>;
-            })}
-          </select>
+          <label>
+            {defaultMessages.webMap}:<br />
+            <select
+              onChange={(evt) => {
+                this.selectChangeHandler(evt);
+              }}
+              style={{ maxWidth: "100%" }}
+            >
+              <option value=""></option>
+              {this.props.config.webMapIds.map((webMapId) => {
+                return <option value={webMapId}>{webMapId}</option>;
+              })}
+            </select>
+          </label>
         </p>
       </div>
     );

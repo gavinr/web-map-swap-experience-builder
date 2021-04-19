@@ -1,4 +1,4 @@
-import { React } from "jimu-core";
+import { FormattedMessage, React } from "jimu-core";
 import { BaseWidgetSetting, AllWidgetSettingProps } from "jimu-for-builder";
 import {
   JimuMapViewSelector,
@@ -8,25 +8,12 @@ import {
 import defaultI18nMessages from "./translations/default";
 import { IMConfig } from "../config";
 
-// interface IState {
-//   layerTextareaValue: string;
-// }
-
 export default class Setting extends BaseWidgetSetting<
   AllWidgetSettingProps<IMConfig>,
   any
 > {
   constructor(props) {
     super(props);
-
-    // console.log(
-    //   "TYPEOF undefined",
-    //   typeof this.props.config?.layerUrls === undefined
-    // );
-
-    // this.state = {
-    //   webMaps: []
-    // };
   }
 
   onMapSelected = (useMapWidgetIds: string[]) => {
@@ -37,22 +24,13 @@ export default class Setting extends BaseWidgetSetting<
   };
 
   onTextChange = (event) => {
-    console.log('onTextChange', event.target.value);
+    const values = event.target.value.split('\n');
     this.props.onSettingChange({
       id: this.props.id,
       config: {
-        webMapIds: event.target.value.split(',')
+        webMapIds: values
       }
     });
-    // this.setState({ layerTextareaValue: event.target.value });
-
-    // this.props.onSettingChange({
-    //   id: this.props.id,
-    //   config: this.props.config.set(
-    //     "layerUrls",
-    //     event.target.value.split("\n")
-    //   ),
-    // });
   };
 
   render() {
@@ -78,6 +56,7 @@ export default class Setting extends BaseWidgetSetting<
             defaultMessage: defaultI18nMessages.webMapIds,
           })}
         >
+          <SettingRow label={defaultI18nMessages.onePerLine}></SettingRow>
           <SettingRow>
             <textarea
               className="w-100 p-1"
