@@ -3,10 +3,11 @@ import { AllWidgetProps, React, jsx } from "jimu-core";
 import { IMConfig } from "../config";
 
 import defaultMessages from "./translations/default";
-import FeatureLayer = require("esri/layers/FeatureLayer");
+import * as FeatureLayer from "esri/layers/FeatureLayer";
 import { JimuMapViewComponent, JimuMapView } from "jimu-arcgis";
-import WebMap = require("esri/WebMap");
-
+import * as WebMap from "esri/WebMap";
+import { WidgetPlaceholder } from "jimu-ui";
+const starIcon = require('jimu-ui/lib/icons/star.svg');
 
 interface IState {
   jimuMapView: JimuMapView;
@@ -37,41 +38,45 @@ export default class WebMapSwap extends React.PureComponent<
   };
 
   render() {
+    let content;
+    if (this.props.hasOwnProperty("useMapWidgetIds") &&
+      this.props.useMapWidgetIds &&
+      this.props.useMapWidgetIds.length === 1 &&
+      this.props.config.webMapIds.length > 0 &&
+      this.props.config.webMapIds.indexOf('') === -1) {
+      content = <p className="shadow-lg m-3 p-3 bg-white rounded">
+        <label>
+          {defaultMessages.webMap}:<br />
+          <select
+            onChange={(evt) => {
+              this.selectChangeHandler(evt);
+            }}
+            style={{ maxWidth: "100%" }}
+          >
+            <option value=""></option>
+            {this.props.config.webMapIds.map((webMapId) => {
+              return <option value={webMapId}>{webMapId}</option>;
+            })}
+          </select>
+        </label>
+        <JimuMapViewComponent
+          useMapWidgetId={this.props.useMapWidgetIds?.[0]}
+          onActiveViewChange={(jmv: JimuMapView) => {
+            this.setState({
+              jimuMapView: jmv,
+            });
+          }}
+        />
+      </p>;
+    } else {
+      content = <WidgetPlaceholder icon={starIcon} widgetId={this.props.id} message={defaultMessages.placeholderMessage} />;
+    }
     return (
       <div
         className="widget-view-layers-toggle jimu-widget"
         style={{ overflow: "auto" }}
       >
-        {this.props.hasOwnProperty("useMapWidgetIds") &&
-          this.props.useMapWidgetIds &&
-          this.props.useMapWidgetIds.length === 1 && (
-            // The JimuMapViewComponent gives us a connection to the
-            // ArcGIS JS API MapView object. We store it in the State.
-            <JimuMapViewComponent
-              useMapWidgetIds={this.props.useMapWidgetIds}
-              onActiveViewChange={(jmv: JimuMapView) => {
-                this.setState({
-                  jimuMapView: jmv,
-                });
-              }}
-            />
-          )}
-        <p className="shadow-lg m-3 p-3 bg-white rounded">
-          <label>
-            {defaultMessages.webMap}:<br />
-            <select
-              onChange={(evt) => {
-                this.selectChangeHandler(evt);
-              }}
-              style={{ maxWidth: "100%" }}
-            >
-              <option value=""></option>
-              {this.props.config.webMapIds.map((webMapId) => {
-                return <option value={webMapId}>{webMapId}</option>;
-              })}
-            </select>
-          </label>
-        </p>
+        {content}
       </div>
     );
   }

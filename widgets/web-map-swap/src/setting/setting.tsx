@@ -61,7 +61,7 @@ export default class Setting extends BaseWidgetSetting<
             <textarea
               className="w-100 p-1"
               style={{ whiteSpace: "nowrap", minHeight: "100px" }}
-              defaultValue={this.props.config.webMapIds?.join(',')}
+              defaultValue={this.props.config.webMapIds?.join('\n')}
               onChange={this.onTextChange}
             ></textarea>
           </SettingRow>
