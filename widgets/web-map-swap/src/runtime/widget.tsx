@@ -45,7 +45,7 @@ export default class WebMapSwap extends React.PureComponent<
       this.props.config.webMapIds.length > 0 &&
       this.props.config.webMapIds.indexOf('') === -1) {
       content = <p className="shadow-lg m-3 p-3 bg-white rounded">
-        <label>
+        <label style={{ maxWidth: "100%" }}>
           {defaultMessages.webMap}:<br />
           <select
             onChange={(evt) => {
