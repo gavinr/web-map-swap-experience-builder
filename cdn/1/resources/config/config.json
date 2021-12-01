@@ -62,33 +62,14 @@
     "layout_2": {
       "type": "FIXED",
       "order": [
-        "0",
         "1",
-        "2",
         "3"
       ],
       "content": {
-        "0": {
-          "type": "WIDGET",
-          "bbox": {
-            "left": "14px",
-            "top": "50%",
-            "width": "36px",
-            "height": "36px"
-          },
-          "setting": {
-            "vCenter": true,
-            "autoProps": {
-              "top": false,
-              "bottom": true
-            }
-          },
-          "widgetId": "widget_2"
-        },
         "1": {
           "type": "WIDGET",
           "bbox": {
-            "left": "82px",
+            "left": "20.00px",
             "top": "50%",
             "width": "291px",
             "height": "42px",
@@ -98,26 +79,6 @@
           "setting": {
             "vCenter": true,
             "hCenter": false,
-            "autoProps": {
-              "top": false,
-              "bottom": true
-            }
-          }
-        },
-        "2": {
-          "type": "WIDGET",
-          "bbox": {
-            "left": "380px",
-            "top": "50%",
-            "width": "207px",
-            "height": "32px",
-            "bottom": "0px",
-            "right": "NaNpx"
-          },
-          "widgetId": "widget_4",
-          "setting": {
-            "hCenter": false,
-            "vCenter": true,
             "autoProps": {
               "top": false,
               "bottom": true
@@ -148,15 +109,9 @@
     "layout_3": {
       "type": "FIXED",
       "order": [
-        "0",
         "1"
       ],
       "content": {
-        "0": {
-          "type": "WIDGET",
-          "bbox": {},
-          "widgetId": "widget_14"
-        },
         "1": {
           "type": "WIDGET",
           "bbox": {},
@@ -168,15 +123,9 @@
     "layout_4": {
       "type": "FIXED",
       "order": [
-        "0",
         "1"
       ],
       "content": {
-        "0": {
-          "type": "WIDGET",
-          "bbox": {},
-          "widgetId": "widget_14"
-        },
         "1": {
           "type": "WIDGET",
           "bbox": {},
@@ -341,23 +290,6 @@
     "layout_18": {
       "type": "FIXED",
       "content": {
-        "0": {
-          "type": "WIDGET",
-          "bbox": {
-            "left": "14px",
-            "top": "50%",
-            "width": "36px",
-            "height": "36px"
-          },
-          "setting": {
-            "vCenter": true,
-            "autoProps": {
-              "top": false,
-              "bottom": true
-            }
-          },
-          "widgetId": "widget_2"
-        },
         "1": {
           "type": "WIDGET",
           "bbox": {
@@ -368,24 +300,6 @@
             "bottom": "0px"
           },
           "widgetId": "widget_3",
-          "setting": {
-            "hCenter": false,
-            "autoProps": {
-              "height": "STRETCH"
-            }
-          },
-          "isPending": true
-        },
-        "2": {
-          "type": "WIDGET",
-          "bbox": {
-            "left": "364px",
-            "top": "0px",
-            "width": "207px",
-            "height": "50px",
-            "bottom": "0px"
-          },
-          "widgetId": "widget_4",
           "setting": {
             "hCenter": false,
             "autoProps": {
@@ -417,9 +331,7 @@
         }
       },
       "order": [
-        "0",
         "1",
-        "2",
         "3"
       ],
       "label": "Default"
@@ -526,23 +438,6 @@
     "layout_22": {
       "type": "FIXED",
       "content": {
-        "0": {
-          "type": "WIDGET",
-          "bbox": {
-            "left": "14px",
-            "top": "50%",
-            "width": "36px",
-            "height": "36px"
-          },
-          "setting": {
-            "vCenter": true,
-            "autoProps": {
-              "top": false,
-              "bottom": true
-            }
-          },
-          "widgetId": "widget_2"
-        },
         "1": {
           "type": "WIDGET",
           "bbox": {
@@ -561,27 +456,6 @@
               "bottom": true
             }
           }
-        },
-        "2": {
-          "type": "WIDGET",
-          "bbox": {
-            "left": "380px",
-            "top": "50%",
-            "width": "207px",
-            "height": "32px",
-            "bottom": "0px",
-            "right": "NaNpx"
-          },
-          "widgetId": "widget_4",
-          "setting": {
-            "hCenter": false,
-            "vCenter": true,
-            "autoProps": {
-              "top": false,
-              "bottom": true
-            }
-          },
-          "isPending": true
         },
         "3": {
           "type": "WIDGET",
@@ -603,49 +477,28 @@
         }
       },
       "order": [
-        "0",
         "1",
-        "2",
         "3"
       ],
       "label": "Default"
     },
     "layout_23": {
       "type": "FIXED",
+      "order": [
+        "1"
+      ],
       "content": {
-        "0": {
-          "type": "WIDGET",
-          "bbox": {},
-          "widgetId": "widget_14"
-        },
         "1": {
           "type": "WIDGET",
           "bbox": {},
           "widgetId": "widget_15"
         }
       },
-      "order": [
-        "0",
-        "1"
-      ],
       "label": "Controller layout"
     },
     "layout_24": {
-      "content": {
-        "0": {
-          "type": "WIDGET",
-          "widgetId": "widget_14",
-          "bbox": {
-            "left": 0,
-            "top": 0,
-            "bottom": 0,
-            "right": 0
-          }
-        }
-      },
-      "order": [
-        "0"
-      ],
+      "content": {},
+      "order": [],
       "label": "Open widget layout"
     },
     "layout_25": {
@@ -737,33 +590,11 @@
       "version": "1.6.0",
       "label": "Fixed Panel 1"
     },
-    "widget_2": {
-      "id": "widget_2",
-      "uri": "widgets/common/image/",
-      "config": {
-        "functionConfig": {
-          "altText": "",
-          "toolTip": "",
-          "linkParam": {},
-          "scale": "Fit",
-          "imageParam": {
-            "cropParam": {
-              "cropShape": "circle",
-              "svgPath": "M28 14c0 7.732-6.268 14-14 14S0 21.732 0 14 6.268 0 14 0s14 6.268 14 14z",
-              "svgViewBox": "0 0 28 28"
-            }
-          }
-        },
-        "styleConfig": {}
-      },
-      "version": "1.6.0",
-      "label": "Image 1"
-    },
     "widget_3": {
       "id": "widget_3",
       "uri": "widgets/common/text/",
       "config": {
-        "text": "",
+        "text": "<p><span style=\"color: var(--light); font-size: 24px;\">﻿USA Soccer Maps</span></p>",
         "placeholder": "<p><span style=\"font-size: 24px; color: var(--light);\">Title</span></p>",
         "style": {
           "verticalAlign": "center",
@@ -774,22 +605,6 @@
       },
       "version": "1.6.0",
       "label": "Text 1"
-    },
-    "widget_4": {
-      "id": "widget_4",
-      "uri": "widgets/common/text/",
-      "config": {
-        "text": "",
-        "placeholder": "<p><span style=\"color: var(--light); font-size: 16px;\">Subtitle</span></p>",
-        "style": {
-          "verticalAlign": "center",
-          "wrap": true,
-          "overflow": "scroll",
-          "padding": "p-1"
-        }
-      },
-      "version": "1.6.0",
-      "label": "Text 2"
     },
     "widget_5": {
       "id": "widget_5",
@@ -1064,18 +879,6 @@
       "version": "1.6.0",
       "label": "Sidebar 2"
     },
-    "widget_14": {
-      "id": "widget_14",
-      "uri": "widgets/arcgis/map-layers/",
-      "config": {
-        "useMapWidget": true
-      },
-      "useMapWidgetIds": [
-        "widget_11"
-      ],
-      "version": "1.6.0",
-      "label": "Map Layers 1"
-    },
     "widget_15": {
       "id": "widget_15",
       "uri": "widgets/arcgis/legend/",
@@ -1211,7 +1014,7 @@
   "mainSizeMode": "LARGE",
   "theme": "themes/default/",
   "forBuilderAttributes": {
-    "lockLayout": true
+    "lockLayout": false
   },
   "template": "jewelrybox",
   "widgetsManifest": {},
@@ -1225,7 +1028,7 @@
       "home": []
     }
   ],
-  "timestamp": 1638397403535,
+  "timestamp": 1638404023395,
   "header": {
     "layout": {
       "LARGE": "layout_31"
