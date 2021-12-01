@@ -1,72 +1,69 @@
-import { FormattedMessage, React } from "jimu-core";
-import { BaseWidgetSetting, AllWidgetSettingProps } from "jimu-for-builder";
+/** @jsx jsx */
+
+import { jsx, React } from "jimu-core";
+import { AllWidgetSettingProps } from "jimu-for-builder";
 import {
   JimuMapViewSelector,
   SettingRow,
   SettingSection,
 } from "jimu-ui/advanced/setting-components";
 import defaultI18nMessages from "./translations/default";
-import { IMConfig } from "../config";
+// import { IMConfig } from "../config";
+import { TextArea } from "jimu-ui";
 
-export default class Setting extends BaseWidgetSetting<
-  AllWidgetSettingProps<IMConfig>,
-  any
-> {
-  constructor(props) {
-    super(props);
-  }
+export default function Setting(
+  props: AllWidgetSettingProps<any>
+): React.ReactElement {
 
-  onMapSelected = (useMapWidgetIds: string[]) => {
-    this.props.onSettingChange({
-      id: this.props.id,
+  const onMapSelected = (useMapWidgetIds: string[]) => {
+    props.onSettingChange({
+      id: props.id,
       useMapWidgetIds: useMapWidgetIds,
     });
   };
 
-  onTextChange = (event) => {
+  const onTextChange = (event) => {
     const values = event.target.value.split('\n');
-    this.props.onSettingChange({
-      id: this.props.id,
+    props.onSettingChange({
+      id: props.id,
       config: {
         webMapIds: values
       }
     });
   };
 
-  render() {
-    return (
-      <div className="view-layers-toggle-setting">
-        <SettingSection
-          title={this.props.intl.formatMessage({
-            id: "selectedMapLabel",
-            defaultMessage: defaultI18nMessages.selectedMap,
-          })}
-        >
-          <SettingRow>
-            <JimuMapViewSelector
-              onSelect={this.onMapSelected}
-              useMapWidgetIds={this.props.useMapWidgetIds}
-            />
-          </SettingRow>
-        </SettingSection>
+  return (
+    <div className="view-layers-toggle-setting">
+      <SettingSection
+        title={props.intl.formatMessage({
+          id: "selectedMapLabel",
+          defaultMessage: defaultI18nMessages.selectedMap,
+        })}
+      >
+        <SettingRow>
+          <JimuMapViewSelector
+            onSelect={onMapSelected}
+            useMapWidgetIds={props.useMapWidgetIds}
+          />
+        </SettingRow>
+      </SettingSection>
 
-        <SettingSection
-          title={this.props.intl.formatMessage({
-            id: "webMapIds",
-            defaultMessage: defaultI18nMessages.webMapIds,
-          })}
-        >
-          <SettingRow label={defaultI18nMessages.onePerLine}></SettingRow>
-          <SettingRow>
-            <textarea
-              className="w-100 p-1"
-              style={{ whiteSpace: "nowrap", minHeight: "100px" }}
-              defaultValue={this.props.config.webMapIds?.join('\n')}
-              onChange={this.onTextChange}
-            ></textarea>
-          </SettingRow>
-        </SettingSection>
-      </div>
-    );
-  }
+      <SettingSection
+        title={props.intl.formatMessage({
+          id: "webMapIds",
+          defaultMessage: defaultI18nMessages.webMapIds,
+        })}
+      >
+        <SettingRow label={defaultI18nMessages.onePerLine}></SettingRow>
+        <SettingRow>
+          <TextArea
+            className="w-100 p-1"
+            style={{ whiteSpace: "nowrap", minHeight: "100px" }}
+            defaultValue={props.config.webMapIds?.join('\n')}
+            onChange={onTextChange}
+          ></TextArea>
+        </SettingRow>
+      </SettingSection>
+    </div>
+  );
 }
