@@ -7,6 +7,15 @@
 				margin: 0;
 				overflow: hidden;
 			}
+			html.scrollable {
+				overflow: auto;
+			}
+			html.scrollable body {
+				overflow: unset;
+			}
+			html.scrollable body, html.scrollable #app {
+				height: auto;
+			}
 			#loading{
 				width: 100vw;
 				height: 100vh;
@@ -24,7 +33,7 @@
 
 			var appFolderName = '.';
 			var useStructuralUrl = false;
-			var arcgisJsApiUrl = 'https://js.arcgis.com/4.21/';
+			var arcgisJsApiUrl = 'https://js.arcgis.com/4.22/';
 
 			// isDevEdition is set to false in webpack, developer edition node server will replace it to true
 			var isDevEdition = false;

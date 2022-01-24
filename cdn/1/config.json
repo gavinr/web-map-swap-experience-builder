@@ -1038,9 +1038,12 @@
   },
   "attributes": {
     "portalUrl": "https://prof-services.maps.arcgis.com",
+    "isWebTier": false,
     "clientId": "",
     "title": "USA Soccer Maps",
-    "description": ""
+    "description": "",
+    "type": "Web Experience",
+    "thumbnail": null
   },
   "sharedThemeVariables": {
     "header": {},
