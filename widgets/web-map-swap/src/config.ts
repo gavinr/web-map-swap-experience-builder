@@ -1,7 +1,7 @@
-import { ImmutableObject } from 'seamless-immutable';
+import { ImmutableObject } from 'seamless-immutable'
 
 export interface Config {
-  webMapIds: string[];
+  webMapIds: string[]
 }
 
-export type IMConfig = ImmutableObject<Config>;
+export type IMConfig = ImmutableObject<Config>

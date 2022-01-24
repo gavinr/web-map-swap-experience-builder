@@ -1,8 +1,8 @@
 {
   "name": "web-map-swap",
   "type": "widget",
-  "version": "1.6.0",
-  "exbVersion": "1.6.0",
+  "version": "1.7.0",
+  "exbVersion": "1.7.0",
   "dependency": "jimu-arcgis",
   "author": "Gavin Rehkemper",
   "description": "Sample widget experimenting how to swap the webmap dynamically in a single Experience Builder map widget",
